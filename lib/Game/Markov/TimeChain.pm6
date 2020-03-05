@@ -6,7 +6,7 @@ class Game::Markov::TimeChain {
 	has @.timedata is rw;
 
 
-	method BUILD(@timebasedvars, $starttime = 0.0) {
+	method BUILD(:@timebasedvars, :$starttime = 0.0) {
 
 		$.time = Time.new(starttime => $starttime, endtime => @timebasedvars.elems);
 		@.timedata = @timebasedvars;
