@@ -1,4 +1,4 @@
-class RandomStratifiers
+class Game::Markov::TruncatedGaussian
 {
 	has $.cmax, $lambda;
 	has $.phifunc;

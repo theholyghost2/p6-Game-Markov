@@ -1,8 +1,8 @@
-use TimeChain;
+use Game::Markov::TimeChain;
 
 ### Non-vector based Chain
 
-class MarkovChain is TimeChain {
+class Game::Markov::MarkovChain is Game::Markov::TimeChain {
 	
 	method BUILD(:@timebasedvars) {
 
