@@ -33,9 +33,9 @@ class Game::Markov::MarkovChain is Game::Markov::TimeChain {
 
 	method M-H() {
 
-		my $theta = 0.0;
 		my @times = ();
 		my @random-list = self.random-list(@.timedata.elems);
+		my $theta = 1 / Int.rand; ### initial value, p(theta) > 0
 
 		for (my $i = 0; $i < @.timedata.elems; $i++) {
 
@@ -46,13 +46,14 @@ class Game::Markov::MarkovChain is Game::Markov::TimeChain {
 			my $pba2 = Game::Stats::Probability.new(@timedata);
 			my $q2 = $pba2.CalculatedCondP0(0);
 
-			$theta = @.timedata[$i];
 
 			my $r = (@random-list[$i] * $q) / ($theta * $q2);
 
 			if ((1 / Int.rand) < $r) {
-				push (@times, @random-list[0]);
+				$theta = @.random-list[$i];
+				push (@times, @random-list[$i]);
 			} else {
+				$theta = @.timedata[$i];
 				push (@times, $theta);
 			}
 
