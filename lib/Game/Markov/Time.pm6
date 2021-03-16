@@ -35,7 +35,7 @@ class Game::Markov::Time does ThisTime {
 			### $t is not beyond last tick (end)time
 			$.currenttime += $t;
 
-			return ticksover(.currenttime, $t);
+			return ticksover($.currenttime, $t);
 
 		} else {
 			### push a new Tick as last Tick has expired

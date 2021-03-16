@@ -1,16 +1,17 @@
-class Game::Markov::TruncatedGaussian
+class RandomStratifiers
 {
-	has $.cmax, $lambda;
+	has $.cmax;
+        has $.lambda;
 	has $.phifunc;
 
 	has $b;
 
 	method BUILD(:$c) {
 		.cmax = $c;
-		.lambda = ($cmax + sqrt($cmax * $cmax + 4)) / 2
+		.lambda = ($.cmax + sqrt($.cmax * $.cmax + 4)) / 2
 		.phifunc = phifunc;	
 
-		.b = exp((.lambda * .lambda - 2 * .lambda * cmax) /2) / 
+		.b = exp((.lambda * .lambda - 2 * .lambda * .cmax) /2) / 
 			sqrt(2 * PI) * .lambda * (1 - .phifunc(c));
 
 		
@@ -18,9 +19,9 @@ class Game::Markov::TruncatedGaussian
 
 	method reinit($c) {
 		.cmax = $c;
-		.lambda = ($cmax + sqrt($cmax * $cmax + 4)) / 2;
+		.lambda = ($.cmax + sqrt($.cmax * $.cmax + 4)) / 2;
 
-		.b = exp((.lambda * .lambda - 2 * .lambda * cmax) /2) / 
+		.b = exp((.lambda * .lambda - 2 * .lambda * .cmax) /2) / 
 			sqrt(2 * PI) * .lambda * (1 - .phifunc(c));
 	}
 
@@ -49,7 +50,7 @@ class Game::Markov::TruncatedGaussian
 		return self.chance(0..1000000.rand, 0);
 	}
 
-	method phifunc ($x) {
+	multi method phifunc ($x) {
 		return $x;
 	}
 

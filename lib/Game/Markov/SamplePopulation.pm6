@@ -1,4 +1,4 @@
-use Game::Stats;
+use Mathx::Stat;
 
 ### A list of DistributionPopulation instances
 class Game::Markov::SamplePopulation
