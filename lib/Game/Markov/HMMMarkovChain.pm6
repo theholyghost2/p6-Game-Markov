@@ -12,11 +12,7 @@ class Game::Markov::HMMMarkovChain is Game::Markov::MarkovChain {
 
 	### This calculates P(A|v_1,v_2,...,v_n) with @indices in .timedata
 	method chance($A, @indices) {
-		return self.chance($A);
+		return self.chanceA($A, @indices);
 	}
 
-	method chance($A) {
-		return undef;
-	}
-	
 }
