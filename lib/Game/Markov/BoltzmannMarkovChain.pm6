@@ -1,12 +1,9 @@
 use Game::Markov::MarkovChain;
 
-### Vector based Chain (HMM == Hidden Markov Model)
-### Matrix-wise forward and backward pass algorithm
+### HMM using Maxwell-Boltzmann distribution for forward and backward pass
 
-class Game::Markov::HMMMatrixMarkovChain is Game::Markov::MarkovChain {
+class Game::Markov::BoltzmannMarkovChain is Game::Markov::MarkovChain {
 
-	### chain of vectors for passing through algorithm (back and forward
-	### states :
 	has @.prevectors;
 	has @.postvectors;
 
