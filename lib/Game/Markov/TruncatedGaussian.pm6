@@ -9,10 +9,10 @@ class RandomStratifiers
 	method BUILD(:$c) {
 		.cmax = $c;
 		.lambda = ($.cmax + sqrt($.cmax * $.cmax + 4)) / 2
-		.phifunc = phifunc;	
+		.phifunc = self.phifunc;	
 
 		.b = exp((.lambda * .lambda - 2 * .lambda * .cmax) /2) / 
-			sqrt(2 * PI) * .lambda * (1 - .phifunc(c));
+			sqrt(2 * pi) * .lambda * (1 - .phifunc(.cmax));
 
 		
 	}
@@ -22,11 +22,7 @@ class RandomStratifiers
 		.lambda = ($.cmax + sqrt($.cmax * $.cmax + 4)) / 2;
 
 		.b = exp((.lambda * .lambda - 2 * .lambda * .cmax) /2) / 
-			sqrt(2 * PI) * .lambda * (1 - .phifunc(c));
-	}
-
-	method phifunc ($x) {
-
+			sqrt(2 * pi) * .lambda * (1 - .phifunc(.cmax));
 	}
 
 	method exponentialdistribution($x) { 
