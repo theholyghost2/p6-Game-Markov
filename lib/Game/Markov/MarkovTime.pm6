@@ -29,6 +29,8 @@ class Game::Markov::MarkovTime is Game::Markov::Time {
 					ns => newtime(.currenttime.seconds + $t)[2]);
 			$.currenttick = $tick;
 			push (@.ticksarray, $tick); 
+
+			return 0; ### default return value 0
 		}
 	} 
 	

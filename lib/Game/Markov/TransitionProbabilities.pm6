@@ -30,7 +30,7 @@ class Game::Markov::TransitionProbabilities {
 	}
 
 	### generate a list of p(i) with Sigma(p(i)) = 1 with threshold
-	multi method generate-list-of-random-chances($threshold) {
+	multi method generate-random-chances($threshold) {
 		my $extra = 1;
 		my @ps;
 	
