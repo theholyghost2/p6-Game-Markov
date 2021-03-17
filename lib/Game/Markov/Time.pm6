@@ -1,7 +1,7 @@
 use Game::Markov::Tick;
 
 role ThisTime {
-	multi method ticksover($time, $t) { return $time + $t; } 
+	multi method ticksover($time, $t) { return $time - $t; } 
 
 	multi method newtime($time) { ### return tuple of time in s,ms,ns
 
